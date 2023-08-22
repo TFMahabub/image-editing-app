@@ -1,5 +1,5 @@
-import FillButton from "../components/Buttons/FillButton";
-import StrokeButton from "../components/Buttons/StrokeButton";
+import ButtonPart from "../components/pageComponents/ButtonPart";
+import ImagePart from "../components/pageComponents/ImagePart";
 
 const ImageEditPage = () => {
   return (
@@ -10,11 +10,10 @@ const ImageEditPage = () => {
         </h1>
         <div className="flex gap-2">
           <div className="flex gap-2">
-            <FillButton>Brightness</FillButton>
-            <StrokeButton>Brightness</StrokeButton>
+            <ButtonPart />
           </div>
-          <div className="bg-primary w-full h-full border border-gray-300">
-            img
+          <div className="bg-primary border border-gray-300">
+            <ImagePart />
           </div>
         </div>
       </main>
