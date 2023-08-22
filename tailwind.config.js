@@ -8,6 +8,14 @@ export default {
     extend: {
       fontSize: {
         heading: '1.2rem'
+      },
+      borderWidth: {
+        DEFAULT: '1px',
+      },
+      colors: {
+        primary: 'rgb(59 130 246)',
+        borderColor: '#d0d0d0',
+        textColor: "#1e1e1e"
       }
     },
   },
