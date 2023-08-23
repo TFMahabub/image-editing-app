@@ -12,7 +12,7 @@ const Progressbar = ({ progressValue, setProgressValue }: PropsType) => {
       step={1}
       value={progressValue}
       onChange={(e) => setProgressValue(e.target.value)}
-      className="progressbar accent-primary"
+      className="progressbar accent-primary w-full"
     />
   );
 };

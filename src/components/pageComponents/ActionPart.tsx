@@ -1,27 +1,41 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ActionContext } from "../../context/ActionValuePorvider";
-import FillButton from "../Buttons/FillButton";
-import StrokeButton from "../Buttons/StrokeButton";
-import Progressbar from "../ProgressBar/Progressbar";
-import MenuText from "../Texts/MenuText";
+import ActionButton from "../Buttons/ActionButton";
+import BrightnessAction from "./BrightnessAction";
 
 const ActionPart = () => {
-  const [progressValue, setProgressValue] = useState("");
-  const { value } = useContext(ActionContext);
-  console.log(value);
-
+  const { action, setAction } = useContext(ActionContext);
   return (
     <>
-      <FillButton>Brightness</FillButton>
-      <StrokeButton>Brightness</StrokeButton>
-      <StrokeButton>Brightness</StrokeButton>
-      <StrokeButton>Brightness</StrokeButton>
+      <div className="grid w-full grid-cols-2 gap-2">
+        <ActionButton
+          onClick={() => setAction("brightness")}
+          active={action === "brightness"}
+        >
+          Brightness
+        </ActionButton>
+        <ActionButton
+          onClick={() => setAction("brightness")}
+          active={action === "brightnesss"}
+        >
+          Brightness
+        </ActionButton>
+        <ActionButton
+          onClick={() => setAction("brightness")}
+          active={action === "brightnesss"}
+        >
+          Brightness
+        </ActionButton>
+        <ActionButton
+          onClick={() => setAction("grayscale")}
+          active={action === "grayscale"}
+        >
+          Grayscale
+        </ActionButton>
+      </div>
+      {/* ---------------progressbar--------------- */}
       <div className="space-y-1">
-        <MenuText>Brightness</MenuText>
-        <Progressbar
-          progressValue={progressValue}
-          setProgressValue={setProgressValue}
-        />
+        <BrightnessAction />
       </div>
     </>
   );
