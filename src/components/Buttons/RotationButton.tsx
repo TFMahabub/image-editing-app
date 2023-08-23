@@ -3,15 +3,15 @@ interface PropsType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const StrokeButton = ({ children, ...attribute }: PropsType) => {
+const RotationButton = ({ children, ...attribute }: PropsType) => {
   return (
     <button
       {...attribute}
-      className=" text-textColor border-borderColor flex items-center justify-center h-10 px-6 text-sm border rounded-sm"
+      className={`flex items-center justify-center h-8 w-10 text-sm border text-textColor rounded-sm `}
     >
       {children}
     </button>
   );
 };
 
-export default StrokeButton;
+export default RotationButton;

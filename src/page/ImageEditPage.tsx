@@ -10,7 +10,7 @@ const ImageEditPage = () => {
           Easy Image Editor
         </h1>
         <div className="flex gap-2">
-          <div className="space-y-2">
+          <div className="p-3 space-y-3 border rounded-sm">
             <MenuText>Filter</MenuText>
             <ActionPart />
           </div>

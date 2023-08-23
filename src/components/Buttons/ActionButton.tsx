@@ -1,7 +1,7 @@
 import React from "react";
 interface PropsType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  active: boolean | null;
+  active?: boolean;
 }
 
 const ActionButton = ({ children, active, ...attribute }: PropsType) => {
