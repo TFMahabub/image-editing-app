@@ -6,6 +6,12 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-body {
-  background-color: #e2f5ff;
+@layer components {
+  body {
+    @apply accent-primary bg-primary/10;
+  }
+}
+
+.progressbar {
+  -webkit-appearence: none;
 }
