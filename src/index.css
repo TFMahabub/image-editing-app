@@ -8,7 +8,7 @@
 
 @layer components {
   body {
-    @apply accent-primary bg-primary/10;
+    @apply accent-primary bg-primary/5;
   }
 }
 

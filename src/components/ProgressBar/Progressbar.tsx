@@ -1,9 +1,9 @@
 interface PropsType {
   progressValue: string;
-  setProgressValue: Dispatch<SetStateAction<string>>;
+  setRange: any;
 }
 
-const Progressbar = ({ progressValue, setProgressValue }: PropsType) => {
+const Progressbar = ({ progressValue, setRange }: PropsType) => {
   return (
     <input
       type="range"
@@ -11,7 +11,7 @@ const Progressbar = ({ progressValue, setProgressValue }: PropsType) => {
       max={100}
       step={1}
       value={progressValue}
-      onChange={(e) => setProgressValue(e.target.value)}
+      onChange={(e) => setRange(e.target.value)}
       className="progressbar accent-primary w-full"
     />
   );
