@@ -9,7 +9,9 @@ const ImagePart = ({ options }: { options: ImageEditInitialStateType }) => {
       <img
         src={demoImage}
         className="max-w-md"
-        style={{ filter: `brightness(${brightness}%)` }}
+        style={{
+          filter: `brightness(${brightness}%) grayscale(${grayscale}%)`,
+        }}
         alt=""
       />
     </>

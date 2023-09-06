@@ -7,7 +7,7 @@ export interface ImageEditInitialStateType {
 const ImageEditInitialState: ImageEditInitialStateType = {
   image: "",
   brightness: "100",
-  grayscale: 5,
+  grayscale: "0",
 };
 
 export default ImageEditInitialState;
