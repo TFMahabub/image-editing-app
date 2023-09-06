@@ -1,9 +1,11 @@
 import {
   BRIGHTNESS,
+  CONTRAST,
   GRAYSCALE,
+  SATURATE,
 } from "../../components/Variables/PropertyVariables";
 
-type TypeType = "brightness" | "grayscale";
+type TypeType = "brightness" | "grayscale" | "saturate" | "contrast";
 
 const imageEditReducer = (
   state: any,
@@ -19,6 +21,16 @@ const imageEditReducer = (
       return {
         ...state,
         grayscale: payload,
+      };
+    case SATURATE:
+      return {
+        ...state,
+        saturate: payload,
+      };
+    case CONTRAST:
+      return {
+        ...state,
+        contrast: payload,
       };
     default:
       state;

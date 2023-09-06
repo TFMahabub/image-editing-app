@@ -2,7 +2,7 @@ import demoImage from "../../assets/Demo.png";
 import { ImageEditInitialStateType } from "../../redusers/ImageEditOptions/InitialState";
 
 const ImagePart = ({ options }: { options: ImageEditInitialStateType }) => {
-  const { image, brightness, grayscale } = options;
+  const { brightness, grayscale, saturate, contrast } = options;
 
   return (
     <>
@@ -10,7 +10,7 @@ const ImagePart = ({ options }: { options: ImageEditInitialStateType }) => {
         src={demoImage}
         className="max-w-md"
         style={{
-          filter: `brightness(${brightness}%) grayscale(${grayscale}%)`,
+          filter: `brightness(${brightness}%) grayscale(${grayscale}%) contrast(${contrast}%) saturate(${saturate}%)`,
         }}
         alt=""
       />

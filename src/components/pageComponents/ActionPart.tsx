@@ -16,7 +16,13 @@ import {
 
 export interface PropsType {
   options: ImageEditInitialStateType;
-  optionDispatch: any;
+  optionDispatch: ({
+    type,
+    payload,
+  }: {
+    type: string;
+    payload: string;
+  }) => void;
 }
 
 const ActionPart = ({ options, optionDispatch }: PropsType) => {
@@ -62,6 +68,8 @@ const ActionPart = ({ options, optionDispatch }: PropsType) => {
           {active === GRAYSCALE && (
             <MenuText>{`${options.grayscale}%`}</MenuText>
           )}
+          {active === CONTRAST && <MenuText>{`${options.contrast}%`}</MenuText>}
+          {active === SATURATE && <MenuText>{`${options.saturate}%`}</MenuText>}
         </div>
         {active === BRIGHTNESS && (
           <Progressbar
@@ -84,6 +92,30 @@ const ActionPart = ({ options, optionDispatch }: PropsType) => {
             value={options.grayscale}
             onChange={(e: EventType) =>
               optionDispatch({ type: GRAYSCALE, payload: e.target.value })
+            }
+          />
+        )}
+        {active === CONTRAST && (
+          <Progressbar
+            type="range"
+            min={1}
+            max={200}
+            step={1}
+            value={options.contrast}
+            onChange={(e: EventType) =>
+              optionDispatch({ type: CONTRAST, payload: e.target.value })
+            }
+          />
+        )}
+        {active === SATURATE && (
+          <Progressbar
+            type="range"
+            min={1}
+            max={200}
+            step={1}
+            value={options.saturate}
+            onChange={(e: EventType) =>
+              optionDispatch({ type: SATURATE, payload: e.target.value })
             }
           />
         )}
