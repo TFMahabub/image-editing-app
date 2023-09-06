@@ -1,21 +1,15 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import ActionPart from "../components/pageComponents/ActionPart";
 import ImagePart from "../components/pageComponents/ImagePart";
-
-export interface OptionType {
-  image: string;
-  brightness: number;
-  grayscale: number;
-}
+import ImageEditInitialState from "../redusers/ImageEditOptions/InitialState";
+import imageEditReducer from "../redusers/ImageEditOptions/reducer";
 
 const ImageEditPage = () => {
-  const [option, setOption] = useState<OptionType>({
-    image: "",
-    brightness: 0,
-    grayscale: 0,
-  });
-
-  console.log(option);
+  const [options, optionDispatch] = useReducer(
+    imageEditReducer,
+    ImageEditInitialState
+  );
+  console.log(options);
 
   return (
     <section className="flex items-center justify-center h-screen">
@@ -25,10 +19,10 @@ const ImageEditPage = () => {
         </h1>
         <div className="flex gap-2">
           <div className="p-3 space-y-3 border rounded-sm">
-            <ActionPart option={option} setOption={setOption} />
+            <ActionPart options={options} optionDispatch={optionDispatch} />
           </div>
           <div className="">
-            <ImagePart />
+            <ImagePart options={options} />
           </div>
         </div>
       </main>

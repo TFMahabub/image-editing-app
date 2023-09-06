@@ -1,34 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MdOutlineRotateLeft, MdOutlineRotateRight } from "react-icons/md";
 import { RiContractLeftRightFill } from "react-icons/ri";
-import { OptionType } from "../../page/ImageEditPage";
+import { ImageEditInitialStateType } from "../../redusers/ImageEditOptions/InitialState";
+import { EventType } from "../../types/GlobalTypes";
 import ActionButton from "../Buttons/ActionButton";
 import RotationButton from "../Buttons/RotationButton";
 import Progressbar from "../ProgressBar/Progressbar";
 import MenuText from "../Texts/MenuText";
-import { BRIGHTNESS, GRAYSCALE } from "../Variables/PropertyVariables";
+import {
+  BRIGHTNESS,
+  CONTRAST,
+  GRAYSCALE,
+  SATURATE,
+} from "../Variables/PropertyVariables";
 
 export interface PropsType {
-  option: any;
-  setOption: any;
+  options: ImageEditInitialStateType;
+  optionDispatch: any;
 }
 
-const ActionPart = ({ option, setOption }: PropsType) => {
+const ActionPart = ({ options, optionDispatch }: PropsType) => {
   const [active, setActive] = useState(BRIGHTNESS);
-  const [range, setRange] = useState("");
-
-  useEffect(() => {
-    if (active === BRIGHTNESS) {
-      setOption((pre: OptionType) => {
-        return { ...pre, brightness: range };
-      });
-    }
-    if (active === GRAYSCALE) {
-      setOption((pre: OptionType) => {
-        return { ...pre, grayscale: range };
-      });
-    }
-  }, [active, range, setOption]);
 
   return (
     <>
@@ -47,14 +39,54 @@ const ActionPart = ({ option, setOption }: PropsType) => {
           >
             {GRAYSCALE}
           </ActionButton>
+          <ActionButton
+            onClick={() => setActive(CONTRAST)}
+            active={active === CONTRAST}
+          >
+            {CONTRAST}
+          </ActionButton>
+          <ActionButton
+            onClick={() => setActive(SATURATE)}
+            active={active === SATURATE}
+          >
+            {SATURATE}
+          </ActionButton>
         </div>
       </div>
       <div className="space-y-1">
         <div className="flex items-center justify-between">
           <MenuText>{active}</MenuText>
-          <MenuText>{`${range}%`}</MenuText>
+          {active === BRIGHTNESS && (
+            <MenuText>{`${options.brightness}%`}</MenuText>
+          )}
+          {active === GRAYSCALE && (
+            <MenuText>{`${options.grayscale}%`}</MenuText>
+          )}
         </div>
-        <Progressbar progressValue={range} setRange={setRange} />
+        {active === BRIGHTNESS && (
+          <Progressbar
+            type="range"
+            min={1}
+            max={200}
+            step={1}
+            value={options.brightness}
+            onChange={(e: EventType) =>
+              optionDispatch({ type: BRIGHTNESS, payload: e.target.value })
+            }
+          />
+        )}
+        {active === GRAYSCALE && (
+          <Progressbar
+            type="range"
+            min={1}
+            max={100}
+            step={1}
+            value={options.grayscale}
+            onChange={(e: EventType) =>
+              optionDispatch({ type: GRAYSCALE, payload: e.target.value })
+            }
+          />
+        )}
       </div>
       <div className="space-y-1">
         <MenuText>Rotate & Flip</MenuText>
