@@ -1,5 +1,4 @@
 export interface ImageEditInitialStateType {
-  image: string;
   brightness: string;
   grayscale: string;
   saturate: string;
@@ -7,7 +6,6 @@ export interface ImageEditInitialStateType {
 }
 
 const ImageEditInitialState: ImageEditInitialStateType = {
-  image: "",
   brightness: "100",
   grayscale: "0",
   saturate: "100",

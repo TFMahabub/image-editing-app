@@ -5,10 +5,16 @@ import {
   SATURATE,
 } from "../../components/Variables/PropertyVariables";
 
-type TypeType = "brightness" | "grayscale" | "saturate" | "contrast";
+export type TypeType = "brightness" | "grayscale" | "saturate" | "contrast";
+interface StateType {
+  brightness: string;
+  grayscale: string;
+  saturate: string;
+  contrast: string;
+}
 
 const imageEditReducer = (
-  state: any,
+  state: StateType,
   { type, payload }: { type: TypeType; payload: string }
 ) => {
   switch (type) {

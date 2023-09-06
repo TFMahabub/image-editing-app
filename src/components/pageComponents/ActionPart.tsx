@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdOutlineRotateLeft, MdOutlineRotateRight } from "react-icons/md";
 import { RiContractLeftRightFill } from "react-icons/ri";
 import { ImageEditInitialStateType } from "../../redusers/ImageEditOptions/InitialState";
+import { TypeType } from "../../redusers/ImageEditOptions/reducer";
 import { EventType } from "../../types/GlobalTypes";
 import ActionButton from "../Buttons/ActionButton";
 import RotationButton from "../Buttons/RotationButton";
@@ -20,7 +21,7 @@ export interface PropsType {
     type,
     payload,
   }: {
-    type: string;
+    type: TypeType;
     payload: string;
   }) => void;
 }

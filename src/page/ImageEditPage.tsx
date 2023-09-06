@@ -1,14 +1,27 @@
 import { useReducer } from "react";
 import ActionPart from "../components/pageComponents/ActionPart";
 import ImagePart from "../components/pageComponents/ImagePart";
-import ImageEditInitialState from "../redusers/ImageEditOptions/InitialState";
-import imageEditReducer from "../redusers/ImageEditOptions/reducer";
+import ImageEditInitialState, {
+  ImageEditInitialStateType,
+} from "../redusers/ImageEditOptions/InitialState";
+import imageEditReducer, {
+  TypeType,
+} from "../redusers/ImageEditOptions/reducer";
 
 const ImageEditPage = () => {
-  const [options, optionDispatch] = useReducer(
-    imageEditReducer,
-    ImageEditInitialState
-  );
+  const [options, optionDispatch] = useReducer<
+    (
+      state: ImageEditInitialStateType,
+      { type, payload }: { type: TypeType; payload: string }
+    ) =>
+      | {
+          brightness: string;
+          grayscale: string;
+          saturate: string;
+          contrast: string;
+        }
+      | undefined
+  >(imageEditReducer, ImageEditInitialState);
   console.log(options);
 
   return (
